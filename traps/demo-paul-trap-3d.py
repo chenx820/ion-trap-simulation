@@ -3,7 +3,7 @@ This script simulates the static electric quadrupole potential in a 3D Paul trap
 using numpy and matplotlib.
 
 Author: Chen Huang
-Date: 08 Nov 2023
+Date: Date: November 08, 2023
 """
 
 import numpy as np
