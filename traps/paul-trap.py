@@ -50,7 +50,7 @@ fig = plt.figure(figsize=(14, 12))
 
 # Plot the 3D electric potential field (scatter plot)
 ax1 = fig.add_subplot(2, 2, 1, projection='3d')
-scatter1 = ax1.scatter3D(x, y, z, c=potential_values, cmap='viridis', label='Potential Energy')
+scatter1 = ax1.scatter3D(x, y, z, c=potential_values, cmap='coolwarm', label='Potential Energy')
 ax1.set_xlabel('$X$ Position')
 ax1.set_ylabel('$Y$ Position')
 ax1.set_zlabel('$Z$ Position')
@@ -64,7 +64,7 @@ cbar = plt.colorbar(scatter1, ax=ax1, label='Potential Energy', location='bottom
 
 # Plot the cross-section in the x-y plane at z=0
 ax2 = fig.add_subplot(2, 2, 4)
-contour2 = ax2.contourf(x_values, y_values, potential_values[:, :, 50], cmap='viridis', vmin=potential_values.min(),
+contour2 = ax2.contourf(x_values, y_values, potential_values[:, :, 50], cmap='coolwarm', vmin=potential_values.min(),
                         vmax=potential_values.max())
 ax2.set_xlabel('$X$ Position')
 ax2.set_ylabel('$Y$ Position')
@@ -75,7 +75,7 @@ ax2.set_yticks(np.linspace(-1, 1, 5))
 
 # Plot the cross-section in the y-z plane at x=0
 ax3 = fig.add_subplot(2, 2, 2)
-contour3 = ax3.contourf(y_values, z_values, potential_values[:, 50, :], cmap='viridis', vmin=potential_values.min(),
+contour3 = ax3.contourf(y_values, z_values, potential_values[:, 50, :], cmap='coolwarm', vmin=potential_values.min(),
                         vmax=potential_values.max())
 ax3.set_xlabel('$Y$ Position')
 ax3.set_ylabel('$Z$ Position')
@@ -86,7 +86,7 @@ ax3.set_yticks(np.linspace(-1, 1, 5))
 
 # Plot the cross-section in the z-x plane at y=0
 ax4 = fig.add_subplot(2, 2, 3)
-contour4 = ax4.contourf(x_values, z_values, potential_values[50, :, :], cmap='viridis', vmin=potential_values.min(),
+contour4 = ax4.contourf(x_values, z_values, potential_values[50, :, :], cmap='coolwarm', vmin=potential_values.min(),
                         vmax=potential_values.max())
 ax4.set_xlabel('$X$ Position')
 ax4.set_ylabel('$Z$ Position')
