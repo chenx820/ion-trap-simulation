@@ -43,7 +43,7 @@ z_values = np.linspace(-1, 1, 100)
 x, y, z = np.meshgrid(x_values, y_values, z_values)
 
 # Calculate electric potential field values array for a linear ion trap
-potential_values = trap_potential(x, y, z, linear_trap)
+potential_values = trap_potential(x, y, z, paul_trap)
 
 # Set a wider figure size
 fig = plt.figure(figsize=(14, 12))
@@ -64,8 +64,8 @@ cbar = plt.colorbar(scatter1, ax=ax1, label='Potential Energy', location='bottom
 
 # Plot the cross-section in the x-y plane at z=0
 ax2 = fig.add_subplot(2, 2, 4)
-contour2 = ax2.contourf(x_values, y_values, potential_values[:, :, 50], cmap='coolwarm', vmin=potential_values.min(),
-                        vmax=potential_values.max())
+contour2 = ax2.contourf(x_values, y_values, potential_values[:, :, 50], cmap='coolwarm',
+                        vmin=potential_values.min(), vmax=potential_values.max())
 ax2.set_xlabel('$X$ Position')
 ax2.set_ylabel('$Y$ Position')
 ax2.set_title('Cross-Section at $z=0$')
@@ -74,20 +74,20 @@ ax2.set_xticks(np.linspace(-1, 1, 5))
 ax2.set_yticks(np.linspace(-1, 1, 5))
 
 # Plot the cross-section in the y-z plane at x=0
-ax3 = fig.add_subplot(2, 2, 2)
-contour3 = ax3.contourf(y_values, z_values, potential_values[:, 50, :], cmap='coolwarm', vmin=potential_values.min(),
-                        vmax=potential_values.max())
-ax3.set_xlabel('$Y$ Position')
-ax3.set_ylabel('$Z$ Position')
+ax3 = fig.add_subplot(2, 2, 3)
+contour3 = ax3.contourf(z_values, y_values, potential_values[:, 50, :], cmap='coolwarm',
+                        vmin=potential_values.min(), vmax=potential_values.max())
+ax3.set_xlabel('$Z$ Position')
+ax3.set_ylabel('$Y$ Position')
 ax3.set_title('Cross-Section at $x=0$')
 # Add ticks to the axes
 ax3.set_xticks(np.linspace(-1, 1, 5))
 ax3.set_yticks(np.linspace(-1, 1, 5))
 
-# Plot the cross-section in the z-x plane at y=0
-ax4 = fig.add_subplot(2, 2, 3)
-contour4 = ax4.contourf(x_values, z_values, potential_values[50, :, :], cmap='coolwarm', vmin=potential_values.min(),
-                        vmax=potential_values.max())
+# Plot the cross-section in the x-z plane at y=0
+ax4 = fig.add_subplot(2, 2, 2)
+contour4 = ax4.contourf(x_values, z_values, potential_values[50, :, :].transpose(), cmap='coolwarm',
+                        vmin=potential_values.min(), vmax=potential_values.max())
 ax4.set_xlabel('$X$ Position')
 ax4.set_ylabel('$Z$ Position')
 ax4.set_title('Cross-Section at $y=0$')
